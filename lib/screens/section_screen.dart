@@ -292,6 +292,8 @@ class SectionScreen extends StatelessWidget {
                               child: Text(
                                 hospital['name'] ?? 'Hospital',
                                 style: Theme.of(context).textTheme.titleLarge,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
@@ -309,8 +311,10 @@ class SectionScreen extends StatelessWidget {
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
-                                  contact['address'],
+                                  contact['address'] ?? '',
                                   style: Theme.of(context).textTheme.bodyLarge,
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
@@ -326,9 +330,13 @@ class SectionScreen extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                               ),
                               const SizedBox(width: 8),
-                              Text(
-                                contact['phone'],
-                                style: Theme.of(context).textTheme.bodyMedium,
+                              Expanded(
+                                child: Text(
+                                  contact['phone'] ?? '',
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ],
                           ),
@@ -343,9 +351,13 @@ class SectionScreen extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                               ),
                               const SizedBox(width: 8),
-                              Text(
-                                contact['email'],
-                                style: Theme.of(context).textTheme.bodyMedium,
+                              Expanded(
+                                child: Text(
+                                  contact['email'] ?? '',
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ],
                           ),
@@ -437,6 +449,8 @@ class SectionScreen extends StatelessWidget {
                               child: Text(
                                 group['name'] ?? 'Support Group',
                                 style: Theme.of(context).textTheme.titleLarge,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
@@ -444,8 +458,10 @@ class SectionScreen extends StatelessWidget {
                         if (group['description'] != null) ...[
                           const SizedBox(height: 12),
                           Text(
-                            group['description'],
+                            group['description'] ?? '',
                             style: Theme.of(context).textTheme.bodyLarge,
+                            maxLines: 5,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                         if (group['meetingSchedule'] != null) ...[
@@ -461,8 +477,10 @@ class SectionScreen extends StatelessWidget {
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
-                                  group['meetingSchedule'],
+                                  group['meetingSchedule'] ?? '',
                                   style: Theme.of(context).textTheme.bodyMedium,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
@@ -481,8 +499,10 @@ class SectionScreen extends StatelessWidget {
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
-                                  group['contactInfo'],
+                                  group['contactInfo'] ?? '',
                                   style: Theme.of(context).textTheme.bodyMedium,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
@@ -581,6 +601,8 @@ class SectionScreen extends StatelessWidget {
                         Text(
                           story['title'] ?? 'Story',
                           style: Theme.of(context).textTheme.headlineSmall,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
                         if (story['author'] != null) ...[
                           const SizedBox(height: 8),

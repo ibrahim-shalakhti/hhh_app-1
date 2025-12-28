@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
 import '../config/r2_config.dart';
 import '../localization/app_localizations.dart';
 import '../models/tutorial_item.dart';
 import '../services/tutorials_service.dart';
 import '../widgets/lang_toggle_button.dart';
 import '../widgets/empty_state_widget.dart';
+import 'tutorial_detail_screen.dart';
 
 class TutorialsScreen extends StatelessWidget {
   const TutorialsScreen({super.key});
@@ -29,14 +30,9 @@ class TutorialsScreen extends StatelessWidget {
     return null;
   }
 
-  Future<void> _openTutorial(TutorialItem item) async {
-    final url = _resolveUrl(item);
-    if (url == null || url.isEmpty) return;
-
-    final uri = Uri.tryParse(url);
-    if (uri == null) return;
-
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  Future<void> _openTutorial(BuildContext context, TutorialItem item) async {
+    // Navigate to detail screen
+    context.push('/tutorial/${item.id}', extra: item);
   }
 
   @override
@@ -100,6 +96,8 @@ class TutorialsScreen extends StatelessWidget {
                   title: Text(
                     title.isEmpty ? '(untitled)' : title,
                     style: Theme.of(context).textTheme.titleMedium,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: (desc == null || desc.isEmpty)
                       ? null
@@ -108,6 +106,8 @@ class TutorialsScreen extends StatelessWidget {
                           child: Text(
                             desc,
                             style: Theme.of(context).textTheme.bodyMedium,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                   trailing: Icon(
@@ -115,7 +115,7 @@ class TutorialsScreen extends StatelessWidget {
                     size: 16,
                     color: Theme.of(context).colorScheme.primary,
                   ),
-                  onTap: () => _openTutorial(item),
+                  onTap: () => _openTutorial(context, item),
                 ),
               );
             },

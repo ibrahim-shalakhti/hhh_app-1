@@ -15,6 +15,7 @@ import 'screens/lock_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/section_screen.dart';
 import 'screens/tutorials_screen.dart';
+import 'screens/tutorial_detail_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/track_dashboard_screen.dart';
 import 'screens/track_home_screen.dart';
@@ -113,6 +114,17 @@ GoRouter createAppRouter(AppCubit appCubit, AuthCubit authCubit) {
       GoRoute(
         path: '/tutorials',
         builder: (context, state) => const TutorialsScreen(),
+      ),
+      GoRoute(
+        path: '/tutorial/:id',
+        builder: (context, state) {
+          final tutorial = state.extra as TutorialItem?;
+          if (tutorial == null) {
+            // Fallback - try to get from state if available
+            return const TutorialsScreen();
+          }
+          return TutorialDetailScreen(tutorial: tutorial);
+        },
       ),
       GoRoute(
         path: '/settings',
