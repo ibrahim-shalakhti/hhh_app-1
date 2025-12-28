@@ -58,7 +58,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Password update requires re-authentication. Please use "Forgot Password" from login screen.'),
+              content: Text(
+                'Password update requires re-authentication. Please use "Forgot Password" from login screen.',
+              ),
             ),
           );
         }
@@ -67,7 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text(loc.t('profileUpdated')),
+            content: Text('profileUpdated'),
             backgroundColor: Colors.green,
           ),
         );
@@ -76,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${loc.t('failedToUpdateProfile')}: ${e.toString()}'),
+            content: Text('${'failedToUpdateProfile'}: ${e.toString()}'),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
@@ -186,10 +188,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const SizedBox(height: 32),
 
                   // Username Field
-                  Text(
-                    'Username',
-                    style: theme.textTheme.labelLarge,
-                  ),
+                  Text('Username', style: theme.textTheme.labelLarge),
                   const SizedBox(height: 8),
                   TextFormField(
                     controller: _usernameController,
@@ -210,10 +209,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const SizedBox(height: 20),
 
                   // Email Field
-                  Text(
-                    'Email',
-                    style: theme.textTheme.labelLarge,
-                  ),
+                  Text('Email', style: theme.textTheme.labelLarge),
                   const SizedBox(height: 8),
                   TextFormField(
                     controller: _emailController,
@@ -266,7 +262,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     validator: (value) {
-                      if (value != null && value.isNotEmpty && value.length < 6) {
+                      if (value != null &&
+                          value.isNotEmpty &&
+                          value.length < 6) {
                         return 'Password must be at least 6 characters';
                       }
                       return null;
@@ -311,9 +309,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           Text(
                             loc.t('logout'),
-                            style: TextStyle(
-                              color: theme.colorScheme.error,
-                            ),
+                            style: TextStyle(color: theme.colorScheme.error),
                           ),
                           const SizedBox(width: 8),
                           Icon(
@@ -334,4 +330,3 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 }
-
