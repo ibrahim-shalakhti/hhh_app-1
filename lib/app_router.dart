@@ -26,6 +26,7 @@ import 'screens/child_detail_screen.dart';
 import 'screens/child_info_screen.dart';
 import 'screens/heart_prediction_screen.dart';
 import 'screens/ai_suggestion_screen.dart';
+import 'screens/main_navigation_screen.dart';
 
 GoRouter createAppRouter(AppCubit appCubit, AuthCubit authCubit) {
   return GoRouter(
@@ -106,8 +107,28 @@ GoRouter createAppRouter(AppCubit appCubit, AuthCubit authCubit) {
         builder: (context, state) => const SignupScreen(),
       ),
       GoRoute(path: '/lock', builder: (context, state) => const LockScreen()),
-      GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
+      
+      // Main navigation routes with bottom bar
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const MainNavigationScreen(
+          child: HomeScreen(),
+        ),
+      ),
+      GoRoute(
+        path: '/track',
+        builder: (context, state) => const MainNavigationScreen(
+          child: TrackDashboardScreen(),
+        ),
+      ),
+      GoRoute(
+        path: '/profile',
+        builder: (context, state) => const MainNavigationScreen(
+          child: ProfileScreen(),
+        ),
+      ),
 
+      // Nested routes (no bottom bar)
       GoRoute(
         path: '/section/:id',
         builder: (context, state) =>
@@ -130,10 +151,6 @@ GoRouter createAppRouter(AppCubit appCubit, AuthCubit authCubit) {
         },
       ),
       GoRoute(
-        path: '/profile',
-        builder: (context, state) => const ProfileScreen(),
-      ),
-      GoRoute(
         path: '/settings',
         builder: (context, state) => const SettingsScreen(),
       ),
@@ -144,11 +161,6 @@ GoRouter createAppRouter(AppCubit appCubit, AuthCubit authCubit) {
       GoRoute(
         path: '/ai-suggestions',
         builder: (context, state) => const AISuggestionScreen(),
-      ),
-
-      GoRoute(
-        path: '/track',
-        builder: (context, state) => const TrackDashboardScreen(),
       ),
       GoRoute(
         path: '/track/manage',

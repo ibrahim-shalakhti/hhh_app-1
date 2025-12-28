@@ -10,58 +10,61 @@ class SpiritualNeedsScreen extends StatelessWidget {
     final loc = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
-    // Five daily prayers with their raka'at
-    final prayers = [
+    // Supplications (ادعية)
+    final supplications = [
       {
-        'nameEn': 'Fajr (Dawn)',
-        'nameAr': 'الفجر',
-        'time': 'Before sunrise',
-        'timeAr': 'قبل شروق الشمس',
-        'rakaat': 2,
-        'sunnahBefore': 2,
-        'sunnahAfter': 0,
+        'titleAr': 'دعاء الشفاء',
+        'titleEn': 'Healing Supplication',
+        'textAr': 'اللهم رب الناس، أذهب البأس، واشف أنت الشافي، لا شفاء إلا شفاؤك، شفاء لا يغادر سقماً',
+        'textEn': 'O Allah, Lord of the people, remove the affliction and cure. You are the Healer. There is no cure except Your cure, a cure that leaves no illness.',
       },
       {
-        'nameEn': 'Dhuhr (Noon)',
-        'nameAr': 'الظهر',
-        'time': 'After midday',
-        'timeAr': 'بعد منتصف النهار',
-        'rakaat': 4,
-        'sunnahBefore': 4,
-        'sunnahAfter': 2,
+        'titleAr': 'دعاء عند المرض',
+        'titleEn': 'Supplication During Illness',
+        'textAr': 'اللهم عافني في بدني، اللهم عافني في سمعي، اللهم عافني في بصري، لا إله إلا أنت',
+        'textEn': 'O Allah, grant me health in my body. O Allah, grant me health in my hearing. O Allah, grant me health in my sight. There is no god but You.',
       },
       {
-        'nameEn': 'Asr (Afternoon)',
-        'nameAr': 'العصر',
-        'time': 'Late afternoon',
-        'timeAr': 'بعد العصر',
-        'rakaat': 4,
-        'sunnahBefore': 0,
-        'sunnahAfter': 0,
+        'titleAr': 'دعاء الرزق والصحة',
+        'titleEn': 'Supplication for Provision and Health',
+        'textAr': 'اللهم إني أسألك العفو والعافية في الدنيا والآخرة، اللهم إني أسألك العفو والعافية في ديني ودنياي وأهلي ومالي',
+        'textEn': 'O Allah, I ask You for pardon and well-being in this life and the next. O Allah, I ask You for pardon and well-being in my religion, my worldly affairs, my family, and my wealth.',
       },
       {
-        'nameEn': 'Maghrib (Sunset)',
-        'nameAr': 'المغرب',
-        'time': 'After sunset',
-        'timeAr': 'بعد غروب الشمس',
-        'rakaat': 3,
-        'sunnahBefore': 0,
-        'sunnahAfter': 2,
+        'titleAr': 'دعاء الهم والحزن',
+        'titleEn': 'Supplication for Worry and Grief',
+        'textAr': 'اللهم إني أعوذ بك من الهم والحزن، والعجز والكسل، والجبن والبخل، وغلبة الدين وقهر الرجال',
+        'textEn': 'O Allah, I seek refuge in You from worry and grief, from incapacity and laziness, from cowardice and miserliness, from being overcome by debt and from being overpowered by men.',
       },
       {
-        'nameEn': 'Isha (Night)',
-        'nameAr': 'العشاء',
-        'time': 'Night',
-        'timeAr': 'الليل',
-        'rakaat': 4,
-        'sunnahBefore': 0,
-        'sunnahAfter': 2,
+        'titleAr': 'دعاء للمريض',
+        'titleEn': 'Supplication for the Sick',
+        'textAr': 'اللهم اشف عبدك ينفعنا به، اللهم اشف عبدك ينفعنا به، اللهم اشف عبدك ينفعنا به',
+        'textEn': 'O Allah, heal Your servant so that he may benefit us. O Allah, heal Your servant so that he may benefit us. O Allah, heal Your servant so that he may benefit us.',
+      },
+      {
+        'titleAr': 'دعاء الصبر',
+        'titleEn': 'Supplication for Patience',
+        'textAr': 'اللهم إني أسألك الصبر عند المصيبة، والشكر عند الرخاء، والرضا بقضائك',
+        'textEn': 'O Allah, I ask You for patience in times of calamity, gratitude in times of ease, and contentment with Your decree.',
+      },
+      {
+        'titleAr': 'دعاء للأطفال',
+        'titleEn': 'Supplication for Children',
+        'textAr': 'اللهم بارك لي في أولادي ووفقهم لطاعتك وارزقني برهم',
+        'textEn': 'O Allah, bless me in my children and grant them success in obeying You, and grant me their righteousness.',
+      },
+      {
+        'titleAr': 'دعاء الحفظ',
+        'titleEn': 'Supplication for Protection',
+        'textAr': 'اللهم احفظني بالإسلام قائماً، واحفظني بالإسلام قاعداً، واحفظني بالإسلام راقداً، ولا تشمت بي عدواً ولا حاسداً',
+        'textEn': 'O Allah, protect me with Islam while standing, protect me with Islam while sitting, protect me with Islam while lying down, and do not let any enemy or envious person rejoice over me.',
       },
     ];
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loc.isArabic ? 'ادعية واحاديث' : 'Supplications and Hadiths'),
+        title: Text(loc.isArabic ? 'ادعية' : 'Supplications'),
         actions: const [LangToggleButton()],
       ),
       body: ListView(
@@ -81,7 +84,7 @@ class SpiritualNeedsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    loc.isArabic ? 'ادعية واحاديث' : 'Supplications and Hadiths',
+                    loc.isArabic ? 'ادعية' : 'Supplications',
                     style: theme.textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -90,8 +93,8 @@ class SpiritualNeedsScreen extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     loc.isArabic
-                        ? 'مجموعة من الأدعية والأحاديث النبوية الشريفة'
-                        : 'A collection of supplications and noble hadiths',
+                        ? 'مجموعة من الأدعية المباركة'
+                        : 'A collection of blessed supplications',
                     style: theme.textTheme.bodyLarge,
                     textAlign: TextAlign.center,
                   ),
@@ -100,64 +103,10 @@ class SpiritualNeedsScreen extends StatelessWidget {
             ),
           ),
 
-          // Content placeholder - can be replaced with actual supplications and hadiths
-          Card(
-            margin: const EdgeInsets.only(bottom: 16),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    loc.isArabic ? 'أدعية الشفاء' : 'Healing Supplications',
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    loc.isArabic
-                        ? 'اللهم رب الناس، أذهب البأس، واشف أنت الشافي، لا شفاء إلا شفاؤك، شفاء لا يغادر سقماً'
-                        : 'O Allah, Lord of the people, remove the affliction and cure. You are the Healer. There is no cure except Your cure, a cure that leaves no illness.',
-                    style: theme.textTheme.bodyLarge,
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          Card(
-            margin: const EdgeInsets.only(bottom: 16),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    loc.isArabic ? 'حديث شريف' : 'Noble Hadith',
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    loc.isArabic
-                        ? 'قال رسول الله صلى الله عليه وسلم: "ما من مسلم يصيبه أذى من مرض فما سواه إلا حط الله به سيئاته كما تحط الشجرة ورقها"'
-                        : 'The Messenger of Allah (peace be upon him) said: "No Muslim is afflicted with any harm, whether from illness or otherwise, but Allah will expiate his sins because of it, as a tree sheds its leaves."',
-                    style: theme.textTheme.bodyLarge,
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // Prayer Cards (keeping for reference but can be removed)
-          ...prayers.map((prayer) {
-            final name = loc.isArabic ? prayer['nameAr'] : prayer['nameEn'];
-            final time = loc.isArabic ? prayer['timeAr'] : prayer['time'];
-            final rakaat = prayer['rakaat'] as int;
-            final sunnahBefore = prayer['sunnahBefore'] as int;
-            final sunnahAfter = prayer['sunnahAfter'] as int;
+          // Supplication Cards
+          ...supplications.map((supplication) {
+            final title = loc.isArabic ? supplication['titleAr'] : supplication['titleEn'];
+            final text = loc.isArabic ? supplication['textAr'] : supplication['textEn'];
 
             return Card(
               margin: const EdgeInsets.only(bottom: 16),
@@ -166,7 +115,7 @@ class SpiritualNeedsScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Prayer Name
+                    // Supplication Title
                     Row(
                       children: [
                         Container(
@@ -183,81 +132,31 @@ class SpiritualNeedsScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 16),
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                name.toString(),
-                                style: theme.textTheme.titleLarge?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                time.toString(),
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            title.toString(),
+                            style: theme.textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 16),
 
-                    // Raka'at Information
+                    // Supplication Text
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
+                        color: theme.colorScheme.primaryContainer.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            loc.isArabic ? 'عدد الركعات' : 'Raka\'at Count',
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: _buildRakaatInfo(
-                                  context,
-                                  loc.isArabic ? 'الفرض' : 'Fard (Obligatory)',
-                                  rakaat,
-                                  theme,
-                                ),
-                              ),
-                              if (sunnahBefore > 0 || sunnahAfter > 0) ...[
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: _buildRakaatInfo(
-                                    context,
-                                    loc.isArabic ? 'السنة' : 'Sunnah',
-                                    sunnahBefore + sunnahAfter,
-                                    theme,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
-                          if (sunnahBefore > 0 || sunnahAfter > 0) ...[
-                            const SizedBox(height: 8),
-                            Text(
-                              loc.isArabic
-                                  ? '${sunnahBefore > 0 ? "قبل: $sunnahBefore" : ""} ${sunnahAfter > 0 ? "بعد: $sunnahAfter" : ""}'
-                                  : '${sunnahBefore > 0 ? "Before: $sunnahBefore" : ""} ${sunnahAfter > 0 ? "After: $sunnahAfter" : ""}',
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                              ),
-                            ),
-                          ],
-                        ],
+                      child: Text(
+                        text.toString(),
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          height: 1.8,
+                          fontSize: loc.isArabic ? 18 : 16,
+                        ),
+                        textAlign: loc.isArabic ? TextAlign.right : TextAlign.left,
                       ),
                     ),
                   ],
@@ -265,86 +164,8 @@ class SpiritualNeedsScreen extends StatelessWidget {
               ),
             );
           }).toList(),
-
-          // Additional Information Card
-          Card(
-            margin: const EdgeInsets.only(top: 8, bottom: 20),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.info_outline,
-                        color: theme.colorScheme.primary,
-                      ),
-                      const SizedBox(width: 12),
-                      Text(
-                        loc.isArabic ? 'معلومات إضافية' : 'Additional Information',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    loc.isArabic
-                        ? '• يمكن أداء الصلاة في المستشفى أو المنزل\n• يمكن الجمع بين الصلوات في حالة الضرورة\n• يمكن القصر (تقصير الصلاة) للمسافرين\n• استشر إمام المسجد للحصول على التوجيه'
-                        : '• Prayers can be performed at the hospital or home\n• Prayers can be combined in case of necessity\n• Prayer can be shortened (Qasr) for travelers\n• Consult with mosque imam for guidance',
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRakaatInfo(
-    BuildContext context,
-    String label,
-    int count,
-    ThemeData theme,
-  ) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: theme.colorScheme.outline.withValues(alpha: 0.2),
-        ),
-      ),
-      child: Column(
-        children: [
-          Text(
-            label,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            '$count',
-            style: theme.textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: theme.colorScheme.primary,
-            ),
-          ),
-          Text(
-            'Raka\'at',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-            ),
-          ),
         ],
       ),
     );
   }
 }
-

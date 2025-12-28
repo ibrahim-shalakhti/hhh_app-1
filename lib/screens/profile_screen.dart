@@ -146,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: Text(loc.t('profile')),
         actions: const [LangToggleButton()],
       ),
       body: BlocBuilder<AuthCubit, AuthState>(

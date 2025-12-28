@@ -2,19 +2,15 @@ import 'dart:math';
 import '../models/heart_healthy_meal.dart';
 
 /// Simple template-based meal suggestion service for children with heart disease
-/// No external AI API required - uses keyword matching and templates
 class HeartMealSuggestionService {
   HeartMealSuggestionService._();
   static final HeartMealSuggestionService instance = HeartMealSuggestionService._();
 
   final _random = Random();
 
-  /// Generate a heart-healthy meal suggestion based on user input
   Future<HeartHealthyMeal> getMealSuggestion(String userInput) async {
-    // Normalize input
     final input = userInput.toLowerCase().trim();
     
-    // Determine meal type based on keywords or time of day
     final mealType = _determineMealType(input);
     
     // Match ingredients from input
